@@ -31,8 +31,6 @@ const ControlButton = ({ name }) => {
   return (
     <AppContext.Consumer>
       {({ page, setPage }) => {
-        console.log(page);
-        console.log(setPage);
         return (
           <ControlButtonElem
             onClick={() => setPage(name)}
