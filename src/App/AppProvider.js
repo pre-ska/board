@@ -56,6 +56,8 @@ export class AppProvider extends React.Component {
 
   isInFavorites = key => _.includes(this.state.favorites, key);
 
+  setFilteredCoins = filteredCoins => this.setState({ filteredCoins });
+
   state = {
     page: "dashboard",
     favorites: ["BTC", "ETH", "XMR", "DOGE"],
@@ -64,7 +66,8 @@ export class AppProvider extends React.Component {
     addCoin: this.addCoin,
     removeCoin: this.removeCoin,
     isInFavorites: this.isInFavorites,
-    confirmFavorites: this.confirmFavorites
+    confirmFavorites: this.confirmFavorites,
+    setFilteredCoins: this.setFilteredCoins
   };
 
   componentDidMount = () => {
