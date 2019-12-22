@@ -5,7 +5,6 @@ const Content = ({ children }) => {
   return (
     <AppContext.Consumer>
       {({ coinsList }) => {
-        console.log(coinsList);
         if (!coinsList) {
           return <div>Loading coins</div>;
         }
