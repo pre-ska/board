@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { AppContext } from "./AppProvider";
 
 const Logo = styled.div`
-  font-size: 1.5em;
+  font-size: 1.3em;
 `;
 
 const Bar = styled.div`
