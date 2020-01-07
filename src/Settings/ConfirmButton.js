@@ -20,15 +20,13 @@ const CenterDiv = styled.div`
 `;
 
 export default () => {
+  const { confirmFavorites } = React.useContext(AppContext);
+
   return (
-    <AppContext.Consumer>
-      {({ confirmFavorites }) => (
-        <CenterDiv>
-          <ConfirmButtonStyled onClick={confirmFavorites}>
-            Confirm favorites
-          </ConfirmButtonStyled>
-        </CenterDiv>
-      )}
-    </AppContext.Consumer>
+    <CenterDiv>
+      <ConfirmButtonStyled onClick={confirmFavorites}>
+        Confirm favorites
+      </ConfirmButtonStyled>
+    </CenterDiv>
   );
 };

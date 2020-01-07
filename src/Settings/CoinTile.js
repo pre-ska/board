@@ -15,30 +15,28 @@ function clickCoinHandler(topSection, coinKey, addCoin, removeCoin) {
 }
 
 export default ({ topSection, coinKey }) => {
+  const { coinList, addCoin, removeCoin, isInFavorites } = React.useContext(
+    AppContext
+  );
+
+  let coin = coinList[coinKey];
+
+  let TileClass = SelectableTile;
+  if (topSection) TileClass = DeletableTile;
+  else if (isInFavorites(coinKey)) {
+    TileClass = DisabledTile;
+  }
+
   return (
-    <AppContext.Consumer>
-      {({ coinsList, addCoin, removeCoin, isInFavorites }) => {
-        let coin = coinsList[coinKey];
-
-        let TileClass = SelectableTile;
-        if (topSection) TileClass = DeletableTile;
-        else if (isInFavorites(coinKey)) {
-          TileClass = DisabledTile;
-        }
-
-        return (
-          <TileClass
-            onClick={clickCoinHandler(topSection, coinKey, addCoin, removeCoin)}
-          >
-            <CoinHeaderGrid
-              topSection={topSection}
-              name={coin.CoinName}
-              symbol={coin.Symbol}
-            />
-            <CoinImage coin={coin} />
-          </TileClass>
-        );
-      }}
-    </AppContext.Consumer>
+    <TileClass
+      onClick={clickCoinHandler(topSection, coinKey, addCoin, removeCoin)}
+    >
+      <CoinHeaderGrid
+        topSection={topSection}
+        name={coin.CoinName}
+        symbol={coin.Symbol}
+      />
+      <CoinImage coin={coin} />
+    </TileClass>
   );
 };
