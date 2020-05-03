@@ -52,8 +52,8 @@ function ChangePercent({ data }) {
   return (
     <JustifyRight>
       <ChangePct red={data.CHANGEPCT24HOUR < 0}>
-        {/* {data.CHANGEPCT24HOUR.toPrecision(5)}% */}
-        {numberFormat(data.CHANGEPCT24HOUR)}%
+        {data.CHANGEPCT24HOUR.toPrecision(5)}%
+        {/* {numberFormat(data.CHANGEPCT24HOUR)}% */}
       </ChangePct>
     </JustifyRight>
   );
@@ -79,7 +79,7 @@ function PriceTileCompactTag({
   sym,
   data,
   currentFavorite,
-  setCurrentFavorite
+  setCurrentFavorite,
 }) {
   // console.log(currentFavorite);
   return (
